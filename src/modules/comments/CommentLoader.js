@@ -1,7 +1,11 @@
 import Comment from './CommentModel';
 
 export async function saveComment(_, { input }) {
+    if (!input.name) throw new Error('Name must be informed.');
+    if (!input.content) throw new Error('Content must be informed.');
+
     const comment = await Comment.create(input);
+
     return comment;
 }
 
