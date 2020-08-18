@@ -10,7 +10,7 @@ export default new GraphQLObjectType({
         name: {
             type: GraphQLNonNull(GraphQLString)
         },
-        description: {
+        content: {
             type: GraphQLNonNull(GraphQLString)
         },
         createdAt: {
