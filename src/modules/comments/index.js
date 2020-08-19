@@ -1,7 +1,7 @@
 import { GraphQLString, GraphQLList, GraphQLInputObjectType } from 'graphql';
 
 import CommentType from './CommentType';
-import { getComments, saveComment } from './CommentLoader';
+import { getComments, saveComment, deleteComment } from './CommentLoader';
 
 export const queries = {
     comments: {
@@ -23,6 +23,22 @@ export const mutations = {
                             type: GraphQLString
                         },
                         content: {
+                            type: GraphQLString
+                        },
+                    },
+                })
+            }
+        },
+    },
+    deleteComment: {
+        type: CommentType,
+        resolve: deleteComment,
+        args: {
+            input: {
+                type: new GraphQLInputObjectType({
+                    name: 'CommentInputDelete',
+                    fields: {
+                        id: {
                             type: GraphQLString
                         },
                     },

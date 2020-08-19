@@ -13,3 +13,8 @@ export async function getComments() {
     const comments = await Comment.find();
     return comments;
 }
+
+export async function deleteComment(_, { input }) {
+    const comment = await Comment.findOneAndDelete({ _id: input.id });
+    return comment;
+}
