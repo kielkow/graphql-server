@@ -14,4 +14,6 @@ mongoose.connect(process.env.MONGO_URL, {
     useUnifiedTopology: true
 });
 
+mongoose.set('useFindAndModify', false);
+
 export default server;
